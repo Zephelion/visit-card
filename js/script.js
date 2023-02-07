@@ -1,8 +1,8 @@
 var sentence = "Russell Numo"
-
 const codeblock = document.querySelector(".sentence");
+const sentenceCurrent = document.querySelector(".sentence");
 
-console.log(codeblock);
+
 
 async function typeSentence(element){
     const letters = sentence.split("");
@@ -38,5 +38,7 @@ async function removeSentence(element){
 
     }
 }
+
+
 
 typeSentence(".sentence");
