@@ -1,5 +1,9 @@
 var sentence = "Russell Numo"
 
+const codeblock = document.querySelector(".sentence");
+
+console.log(codeblock);
+
 async function typeSentence(element){
     const letters = sentence.split("");
 
@@ -12,10 +16,14 @@ async function typeSentence(element){
 
     if(i = 11){
        await new Promise(r => setTimeout(r, 4000));
-        removeSentence(".sentence");
+        await removeSentence(".sentence");
 
-        sentence = "Nu moet er iets anders komen te staan";
-        await typeSentence(".sentence");
+        sentence = "const student = {firstname: Russell, lastname: Numo, Discipline: CMD, role: Student,}";
+
+        await new Promise(r => setTimeout(r, 3000));
+        codeblock.classList.add("codeblock");
+        typeSentence(".sentence");
+
     }
 }
 
@@ -28,9 +36,7 @@ async function removeSentence(element){
         letters.pop();
         document.querySelector(element).innerHTML = letters.join("");
 
-        console.log(letters);
     }
 }
 
 typeSentence(".sentence");
-// removeSentence(".sentence");

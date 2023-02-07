@@ -42,6 +42,11 @@ div.typing-container{
     animation: blink 1s infinite;
 }
 
+.codeblock{
+    font-size: 1.7em;
+    margin: 10px;
+}
+
 h1{
     display: flex;
     justify-content: center;
