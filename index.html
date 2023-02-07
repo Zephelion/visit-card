@@ -9,7 +9,7 @@
 </head>
 <body>
     <main>
-        <div class="card">
+        <div id="particles-js" class="card">
             <div class="typing-container">
                 <h1 class="sentence"></h1>
                 <span class="input-cursor"></span>
@@ -17,5 +17,11 @@
         </div>
     </main>
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS.load('particles-js', 'particles.json', function() {
+    console.log('callback - particles.js config loaded');
+  });
+    </script>
 </body>
 </html>
