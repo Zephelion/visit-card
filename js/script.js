@@ -2,7 +2,7 @@ var sentence = "Russell Numo"
 const codeblock = document.querySelector(".sentence");
 const sentenceCurrent = document.querySelector(".sentence");
 
-
+console.log("welcome back to my website");
 
 async function typeSentence(element){
     const letters = sentence.split("");
