@@ -4,6 +4,14 @@ const sentenceCurrent = document.querySelector(".sentence");
 
 console.log("welcome back to my website");
 
+const fetchStudent = async () => {
+    const url = "https://wd-tribe-api.netlify.app/.netlify/functions/member?id=cldex18yd47ta0bw5jbmhatd6";
+
+    await fetch(url)
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+};
+
 async function typeSentence(element){
     const letters = sentence.split("");
 
@@ -39,6 +47,6 @@ async function removeSentence(element){
     }
 }
 
-
+window.addEventListener("domcontentloaded", fetchStudent());
 
 typeSentence(".sentence");
