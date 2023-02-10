@@ -1,15 +1,25 @@
 var sentence = "Russell Numo"
 const codeblock = document.querySelector(".sentence");
 const sentenceCurrent = document.querySelector(".sentence");
+const id = "cldex18yd47ta0bw5jbmhatd6";
 
-console.log("welcome back to my website");
 
-const fetchStudent = async () => {
-    const url = "https://wd-tribe-api.netlify.app/.netlify/functions/member?id=cldex18yd47ta0bw5jbmhatd6";
+const fetchStudent = async (id) => {
+    const url = `https://whois.fdnd.nl/api/v1/member?id=${id}`;
+
+    console.log(url);
 
     await fetch(url)
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then(async function(data) {
+        console.log(data);
+        sentence = `const student = {firstname: ${data.member.name}, lastname: ${data.member.surname}, nickname: ${data.member.nickname}, github: ${data.member.gitHubHandle} Discipline: CMD, role: Student,}`;
+        
+        await new Promise(r => setTimeout(r, 3000));
+        codeblock.classList.add("codeblock");
+        typeSentence(".sentence");
+    });
+
 };
 
 async function typeSentence(element){
@@ -19,6 +29,7 @@ async function typeSentence(element){
 
     for(i = 0; i < letters.length; i++){
         document.querySelector(element).innerHTML += letters[i] + "";
+        
         await new Promise(r => setTimeout(r, 100));
     }
 
@@ -26,11 +37,12 @@ async function typeSentence(element){
        await new Promise(r => setTimeout(r, 4000));
         await removeSentence(".sentence");
 
-        sentence = "const student = {firstname: Russell, lastname: Numo, Discipline: CMD, role: Student,}";
+        await fetchStudent(id);
+        // sentence = "const student = {firstname: Russell, lastname: Numo, Discipline: CMD, role: Student,}";
 
-        await new Promise(r => setTimeout(r, 3000));
-        codeblock.classList.add("codeblock");
-        typeSentence(".sentence");
+        // await new Promise(r => setTimeout(r, 3000));
+        // codeblock.classList.add("codeblock");
+        // typeSentence(".sentence");
 
     }
 }
@@ -47,6 +59,5 @@ async function removeSentence(element){
     }
 }
 
-window.addEventListener("domcontentloaded", fetchStudent());
 
 typeSentence(".sentence");
