@@ -10,10 +10,6 @@
     src: url("../fonts/Octarine-Light.otf") format("truetype");
 }
 
-/* body{
-    background: linear-gradient(90deg,#000000, #000538);
-} */
-
 div#particles-js{
     position: relative;
     height: 100vh;
